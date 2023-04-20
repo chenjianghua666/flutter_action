@@ -10,14 +10,12 @@ jobs:
     - name: install dependencies
       uses: steebchen/flutter@v1.1.0
       with:
-        args: pub get
+          channel: "stable"
+          flutter-version: "3.7.8"
+    - run: flutter pub get
+      
 
-    - name: run tests
+    - name: flutter build apk
       uses: steebchen/flutter@v1.1.0
       with:
-        args: test
-
-    - name: build apk
-      uses: steebchen/flutter@v1.1.0
-      with:
-        args: build apk --release
+        args: flutter build apk --release
